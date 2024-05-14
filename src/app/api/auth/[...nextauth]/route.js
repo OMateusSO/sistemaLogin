@@ -37,8 +37,10 @@ const options = NextAuth({
       },
     })
   ],
-
-
+  secret: process.env.NEXTAUTH_SECRET,
+  pages: {
+    error: "login",
+  },
 });
 
 export { options as GET, options as POST}
