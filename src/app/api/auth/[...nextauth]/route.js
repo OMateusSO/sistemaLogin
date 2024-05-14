@@ -37,9 +37,7 @@ const options = NextAuth({
       },
     })
   ],
-  pages: {
-    error: "login",
-  },
+
 
 });
 
