@@ -46,7 +46,6 @@ export default function Login() {
       signIn("Credentials", { ...values, redirect: false}).then(
         ({ error }) => {
           if (!error){
-            //faz login
             router.push("/home");
           } else {
             readerError(error.replace("Error: ", ""));  

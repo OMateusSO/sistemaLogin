@@ -4,6 +4,8 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs"
 import connect from "@/utils/db";
 
+
+
 const options = NextAuth({
   providers: [
     CredentialsProvider({
@@ -11,7 +13,6 @@ const options = NextAuth({
       nome: "Credentials",
       async authorize(credentials){
         await connect();
-
         try {
           const user = await User.findOne({
             email: credentials.email,
@@ -39,6 +40,7 @@ const options = NextAuth({
   pages: {
     error: "login",
   },
+
 });
 
 export { options as GET, options as POST}
