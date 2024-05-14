@@ -37,6 +37,8 @@ const options = NextAuth({
       },
     })
   ],
+  callbacks: {
+  },
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
     error: "login",
