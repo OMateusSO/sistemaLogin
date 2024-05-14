@@ -1,7 +1,7 @@
 "use client";
 import React from 'react'
 import LayoutAdmin from "@/components/LayoutAdmin";
-import Nav from '@/components/Nav';
+import NavLogado from '@/components/NavLogado';
 import { useSession } from "next-auth/react";
 
 
@@ -9,9 +9,9 @@ export default function Home() {
   const { status, data: session } = useSession();
   return (
     <LayoutAdmin>
-      <Nav/>
+      <NavLogado/>
       <main className="min-h-screen flex justify-center pt-6">
-        <span>{`olá ${session?.user?.email}`}</span>
+        <span>{`Meu DEUS ${session?.user?.email}`}</span>
       </main>
   </LayoutAdmin>
   )

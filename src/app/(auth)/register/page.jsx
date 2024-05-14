@@ -7,7 +7,7 @@ import Link from "next/link";
 import * as Yup from "yup";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-
+import Nav from "@/components/Nav";
 
 export default function Register() {
   const [error, setError] = useState("");
@@ -16,12 +16,12 @@ export default function Register() {
   const router = useRouter();
 
   useEffect(() => {
-    if (status === "authenticated"){
+    if (status === "authenticated") {
       router.push("/home");
     }
   }, [status, router]);
 
-  if (status !== "unauthenticated"){
+  if (status !== "unauthenticated") {
     return null;
   }
 
@@ -29,7 +29,7 @@ export default function Register() {
     nome: "",
     email: "",
     password: "",
-  }
+  };
 
   const validationSchema = Yup.object().shape({
     nome: Yup.string().required("O campo nome é obrigatório"),
@@ -53,7 +53,7 @@ export default function Register() {
           password: values.password,
         }),
       }).then(async (res) => {
-        const result = await res.json()
+        const result = await res.json();
 
         if (result.status === 201) {
           alert(result.message);
@@ -65,7 +65,7 @@ export default function Register() {
         }
 
         setFormSubmitting(false);
-      })
+      });
     } catch (error) {
       setFormSubmitting(false);
       renderError("Erro ao criar conta, tente mais tarde!");
@@ -80,40 +80,49 @@ export default function Register() {
   }
 
   return (
-    <main className="min-h-screen flex items-center justify-center">
-      <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
-        {({ values }) => (
-          <Form
-            noValidate
-            className="flex flex-col gap-2 p-4 border border-zinc-300 rounded min-w-[300px] bg-white"
-          >
-            <Input name="nome" type="text" placeholder="Nome" required />
-            <Input name="email" type="email" placeholder="E-mail" required />
-            <Input
-              name="password"
-              type="password"
-              placeholder="Senha"
-              required
-              autoComplete="off"
-            />
-            <Button
-              type="submit"
-              text={isFormSubmitting ? "Carregando..." : "Inscrever-se"}
-              disabled={isFormSubmitting}
-              className="bg-blue-600 text-white rounded p-2 cursor-pointer"
-            />
-            {!values.nome && !values.email && !values.password && error && (
-              <span className="text-red-500 text-sm text-center">{error}</span>
-            )}
-            <span className="text-xs text-zinc-500">
-              Já possui conta?
-              <strong className="text-zinc-700 cursor-pointer">
-                <Link href="/login"> Fazer login</Link>
-              </strong>
-            </span>
-          </Form>
-        )}
-      </Formik>
+    <main>
+      <Nav />
+      <div className="min-h-screen flex items-center justify-center">
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+        >
+          {({ values }) => (
+            <Form
+              noValidate
+              className="flex flex-col gap-2 p-4 border border-zinc-300 rounded min-w-[300px] bg-white"
+            >
+              <Input name="nome" type="text" placeholder="Nome" required />
+              <Input name="email" type="email" placeholder="E-mail" required />
+              <Input
+                name="password"
+                type="password"
+                placeholder="Senha"
+                required
+                autoComplete="off"
+              />
+              <Button
+                type="submit"
+                text={isFormSubmitting ? "Carregando..." : "Inscrever-se"}
+                disabled={isFormSubmitting}
+                className="bg-blue-600 text-white rounded p-2 cursor-pointer"
+              />
+              {!values.nome && !values.email && !values.password && error && (
+                <span className="text-red-500 text-sm text-center">
+                  {error}
+                </span>
+              )}
+              <span className="text-xs text-zinc-500">
+                Já possui conta?
+                <strong className="text-zinc-700 cursor-pointer">
+                  <Link href="/login"> Fazer login</Link>
+                </strong>
+              </span>
+            </Form>
+          )}
+        </Formik>
+      </div>
     </main>
   );
 }
