@@ -39,9 +39,11 @@ const options = NextAuth({
   ],
   callbacks: {
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_URL,
   pages: {
-    error: "login",
+    signIn: '/api/auth/signin',
+    signOut: '/api/auth/signout',
+    error: '/api/auth/error', // Error code passed in query string as ?error=
   },
 });
 
