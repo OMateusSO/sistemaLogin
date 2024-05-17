@@ -65,9 +65,9 @@ export default function Login() {
   }
 
   return (
-    <main>
+    <main className="max-h-screen">
       <Nav />
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="h-full min-h-screen flex items-center justify-center">
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
