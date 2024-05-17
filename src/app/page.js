@@ -1,19 +1,14 @@
 "use client";
 import { useRouter } from "next/navigation";
 import Button from "@/components/Button";
-import Nav from "@/components/Nav";    <main>
-<Nav/>
-<div className="min-h-screen flex justify-center pt-6">
-  sobre
-</div>
-</main>
+import Nav from "@/components/Nav";
 
 export default function Index() {
   const router = useRouter();
 
   return (
     <main>
-      <Nav/>
+      <Nav />
       <div className="min-h-screen flex justify-center pt-6">
         <Button
           text="Login"
