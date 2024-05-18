@@ -9,7 +9,7 @@ const Nav = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="sm:fixed top-0 left-0 w-full z-50 bg-black p-4">
+    <nav className="top-0 left-0 w-full z-50 bg-blue-700 p-4">
       {session ? (
         <LoggedInNav
           isMobileMenuOpen={isMobileMenuOpen}
@@ -29,7 +29,7 @@ const Nav = () => {
 const LoggedInNav = ({ isMobileMenuOpen, setIsMobileMenuOpen, signOut }) => (
   <div>
     <div className="flex items-center justify-between">
-      <Link href="/" className="text-white text-2xl">
+      <Link href="/home" className="text-white text-2xl">
         Home
       </Link>
       <button
@@ -39,9 +39,6 @@ const LoggedInNav = ({ isMobileMenuOpen, setIsMobileMenuOpen, signOut }) => (
         ☰
       </button>
       <div className="hidden md:flex items-center gap-4">
-        <Link href="/" className="text-white text-2xl">
-          Opções
-        </Link>
         <Button
           text="Sair"
           className="bg-red-600 text-white rounded px-3 py-2 cursor-pointer"
@@ -56,8 +53,7 @@ const LoggedInNav = ({ isMobileMenuOpen, setIsMobileMenuOpen, signOut }) => (
       >
         X
       </p>
-      <div className="flex mx-20 my-2 gap-4 text-2xl brightness-200 drop-shadow contrast-200 text-center flex-col">
-        <p className=" text-white">Opções</p>
+      <div className="flex mx-20 my-2 gap-4 mt-6 text-2xl brightness-200 drop-shadow contrast-200 text-center flex-col">
         <p className="text-red-600 cursor-pointer" onClick={() => signOut()}>
           Sair
         </p>
@@ -80,8 +76,8 @@ const LoggedOutNav = ({ isMobileMenuOpen, setIsMobileMenuOpen }) => (
 
     <div className="hidden md:flex sm:flex-row items-end sm:ml-auto sm:w-auto sm:mt-0">
       <div className="m-1">
-        <Link href="/register" className="text-white text-2xl">
-          Register
+        <Link href="/cadastrar" className="text-white text-2xl">
+          Cadastrar
         </Link>
       </div>
       <div className="m-1">
@@ -101,13 +97,17 @@ const LoggedOutNav = ({ isMobileMenuOpen, setIsMobileMenuOpen }) => (
       >
         X
       </p>
-      <div className="flex mx-20 my-2 gap-4 mt-6 text-2xl brightness-200 drop-shadow contrast-200 text-center flex-col">
-        <Link href="/login" className="text-white text-2xl">
-          Login
-        </Link>
-        <Link href="/register" className="text-white text-2xl">
-          Register
-        </Link>
+      <div className="flex flex-col justify-center items-center mx-20 mt-6 text-2xl text-center brightness-200 drop-shadow contrast-200">
+        <div className="m-2">
+          <Link href="/login" className="text-white text-2xl">
+            Login
+          </Link>
+        </div>
+        <div className="m-2">
+          <Link href="/cadastrar" className="text-white text-2xl">
+            Cadastrar
+          </Link>
+        </div>
       </div>
     </div>
   </div>

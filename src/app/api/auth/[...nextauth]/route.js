@@ -10,7 +10,6 @@ const options = NextAuth({
   providers: [
     CredentialsProvider({
       id: "Credentials",
-      nome: "Credentials",
       async authorize(credentials){
         await connect();
         try {

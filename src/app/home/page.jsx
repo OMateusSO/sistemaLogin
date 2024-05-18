@@ -9,9 +9,9 @@ export default function Home() {
   return (
     <LayoutAdmin>
       <main className="min-h-screen">
-        <Nav/>
-        <div className="flex justify-center">
-          <span>{`Meu DEUS ${session?.user?.email}`}</span>
+        <Nav />
+        <div className="min-h-80 flex items-center justify-center">
+        <h1 className="text-6xl">{`Roubei seu email ${session?.user?.email}`}</h1>
         </div>
       </main>
     </LayoutAdmin>

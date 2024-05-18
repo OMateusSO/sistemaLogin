@@ -7,19 +7,11 @@ export default function Index() {
   const router = useRouter();
 
   return (
-    <main>
+    <main className="min-h-screen">
       <Nav />
-      <div className="min-h-screen flex justify-center pt-6">
-        <Button
-          text="Login"
-          onClick={() => router.push("/login")}
-          className="bg-blue-600 text-white rounded p-2 mr-2 cursor-pointer"
-        />
-        <Button
-          text="Registrar"
-          onClick={() => router.push("/register")}
-          className="bg-blue-600 text-white rounded p-2 cursor-pointer"
-        />
+      <div className="min-h-80 flex items-center justify-center">
+        <h1 className="text-6xl">FAZ LOGIN AI AMIGO</h1>
+        
       </div>
     </main>
   );

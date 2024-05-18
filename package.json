@@ -9,12 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next-auth/typeorm-legacy-adapter": "^2.0.2",
+    "axios": "^1.6.8",
     "bcryptjs": "^2.4.3",
+    "express": "^4.19.2",
     "formik": "^2.4.6",
     "mongodb": "^6.5.0",
-    "mongoose": "^8.3.3",
+    "mongoose": "^8.4.0",
     "next": "^14.2.3",
     "next-auth": "^4.24.7",
+    "nodemon": "^3.1.0",
+    "prisma": "^5.14.0",
     "react": "^18",
     "react-dom": "^18",
     "yup": "^1.4.0"
